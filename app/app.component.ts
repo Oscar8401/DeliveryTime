@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { products } from './products';
+import { deliveries } from './delivery';
 
 @Component({
     selector: 'my-app',
@@ -7,5 +7,5 @@ import { products } from './products';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public gridData: any[] = products;
+    public slots: any[] = deliveries;
 }

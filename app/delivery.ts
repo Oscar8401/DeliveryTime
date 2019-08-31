@@ -1,4 +1,4 @@
-export const products = [{
+export const deliveries = [{
     "deliveryTimeId": 1,
     "deliveryDate": "2019-01-01",
     "startTime": "16:00:00",
