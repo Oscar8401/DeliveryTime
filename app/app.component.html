@@ -1,0 +1,29 @@
+<div class="container">
+    <kendo-grid [data]="gridData" [height]="255">
+            <kendo-grid-column field="deliveryTimeId" title="Id">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="deliveryDate" title="Delivery Date">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="startTime" title="Start time">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="stopTime" title="Stop time">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="isHomeAvailable" title="inHomeAvailable">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <input type="checkbox" [checked]="dataItem.isHomeAvailable" disabled/>
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+</div>
+
+
+
+<table>
+  <tr *ngFor="let product of products">
+    <th>{{products.deliveryTimeId}}</th>
+  </tr>
+</table>
