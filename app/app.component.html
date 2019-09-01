@@ -26,7 +26,7 @@
 
              <kendo-grid-column field="" title="send delivery">
                <ng-template kendoGridCellTemplate let-dataItem>
-               <button kendoButton (click)="onButtonClick()" >delivery</button>
+               <button kendoButton (click)="onButtonClick()" [primary]="true">delivery</button>
                </ng-template>
             </kendo-grid-column>
         </kendo-grid>
