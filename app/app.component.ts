@@ -43,6 +43,14 @@ private updateTimeFormat(time: string) {
 
       return slots;
     }
+
+  handleSelected($event) {
+   if ($event.target.checked === true) {
+   // here i should but the onButtonClick
+   }
+}
+
+
     private onButtonClick() {
       alert(this.message);
     }

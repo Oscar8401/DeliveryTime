@@ -20,7 +20,7 @@
 
              <kendo-grid-column title="choose slot">
                <ng-template kendoGridCellTemplate let-dataItem>
-                    <input type="checkbox" [checked]="false" />
+                    <input type="checkbox" [checked]="false" (change)="handleSelected($event)"/>
                 </ng-template>
             </kendo-grid-column>
 
