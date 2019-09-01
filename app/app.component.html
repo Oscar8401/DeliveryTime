@@ -17,6 +17,16 @@
                     <input type="checkbox" [checked]="dataItem.isHomeAvailable" disabled/>
                 </ng-template>
             </kendo-grid-column>
+
+             <kendo-grid-column field="" title="choose slot">
+               <ng-template kendoGridCellTemplate let-dataItem>
+                    <input type="checkbox" [checked]="" />
+                </ng-template>
+            </kendo-grid-column>
+
+             <kendo-grid-column field="" title="send delivery">
+               <button kendoButton (click)="onButtonClick()">delivery</button>
+            </kendo-grid-column>
         </kendo-grid>
 </div>
 
