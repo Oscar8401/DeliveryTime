@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { deliveries } from './delivery';
 import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
 import { GridDataResult } from '@progress/kendo-angular-grid';
+import {FormGroup, FormControl} from '@angular/forms';
+import {GridComponent} from '@progress/kendo-angular-grid';
 
 
 @Component({
@@ -10,6 +12,7 @@ import { GridDataResult } from '@progress/kendo-angular-grid';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public grid: GridComponent;
   public message = 'The delivery has been sended';
   public gridView: GridDataResult;
   public sort: SortDescriptor [] = [{
@@ -27,7 +30,7 @@ export class AppComponent {
 
     private loadDeliveries(): void {
         this.gridView = {
-            data: orderBy(this.converSlots(this.slots), this.sort),
+             data: orderBy(this.sortslots(this.converSlots(this.slots)), this.sort),
             total: this.slots.length
         };
     }
@@ -39,16 +42,32 @@ private updateTimeFormat(time: string) {
       for (let i in slots) {
         slots[i].startTime = this.updateTimeFormat(slots[i].startTime);
         slots[i].stopTime = this.updateTimeFormat(slots[i].stopTime);
+        slots[i].isChecked = true;
       }
 
       return slots;
     }
+    private sortslots(slots: any[]) {
+      return slots.sort( this.compare );
+    }
 
-  handleSelected($event) {
-   if ($event.target.checked === true) {
-   // here i should but the onButtonClick
-   }
-}
+    private compare( a, b ) {
+      if ( a.startTime < b.startTime ){
+        return -1;
+      }
+      if ( a.startTime > b.startTime ){
+        return 1;
+      }
+      return 0;
+    }
+
+   private handleSelected($event, dataItem) {
+      if ($event.target.checked === true) {
+        dataItem.isChecked = false;
+      }else{
+        dataItem.isChecked = true;
+      }
+    }
 
 
     private onButtonClick() {
