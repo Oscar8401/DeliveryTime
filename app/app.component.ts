@@ -26,8 +26,20 @@ export class AppComponent {
 
     private loadDeliveries(): void {
         this.gridView = {
-            data: orderBy(this.slots, this.sort),
+            data: orderBy(this.converSlots(this.slots), this.sort),
             total: this.slots.length
         };
+    }
+private updateTimeFormat(time: string) {
+      return `${time.split(':')[0]}:${time.split(':')[1]}`;
+    }
+
+    private converSlots(slots: any[]) {
+      for (let i in slots) {
+        slots[i].startTime = this.updateTimeFormat(slots[i].startTime);
+        slots[i].stopTime = this.updateTimeFormat(slots[i].stopTime);
+      }
+
+      return slots;
     }
 }
