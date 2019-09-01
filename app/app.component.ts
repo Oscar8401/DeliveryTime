@@ -7,34 +7,32 @@ import {GridComponent} from '@progress/kendo-angular-grid';
 
 
 @Component({
-    selector: 'my-app',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  public grid: GridComponent;
-  public message = 'The delivery has been sended';
-  public gridView: GridDataResult;
-  public sort: SortDescriptor [] = [{
-    field: 'startTime',
-    dir: 'asc'
-  }];
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+  })
+  export class AppComponent {
+    public grid: GridComponent;
+    public message = 'The delivery has been sended';
+    public gridView: GridDataResult;
+    public sort: SortDescriptor [] = [{
+      field: 'startTime',
+      dir: 'asc'}];
     public slots: any[] = deliveries;
     constructor() {
-        this.loadDeliveries();
-    }
-        public sortChange(sort: SortDescriptor[]): void {
+      this.loadDeliveries();
+      }
+      public sortChange(sort: SortDescriptor[]): void {
         this.sort = sort;
         this.loadDeliveries();
     }
-
     private loadDeliveries(): void {
-        this.gridView = {
-             data: orderBy(this.sortslots(this.converSlots(this.slots)), this.sort),
-            total: this.slots.length
-        };
+      this.gridView = {
+      data: orderBy(this.sortslots(this.converSlots(this.slots)), this.sort),
+      total: this.slots.length
+      };
     }
-private updateTimeFormat(time: string) {
+    private updateTimeFormat(time: string) {
       return `${time.split(':')[0]}:${time.split(':')[1]}`;
     }
 
@@ -50,7 +48,6 @@ private updateTimeFormat(time: string) {
     private sortslots(slots: any[]) {
       return slots.sort( this.compare );
     }
-
     private compare( a, b ) {
       if ( a.startTime < b.startTime ){
         return -1;
@@ -60,7 +57,6 @@ private updateTimeFormat(time: string) {
       }
       return 0;
     }
-
    private handleSelected($event, dataItem) {
       if ($event.target.checked === true) {
         dataItem.isChecked = false;
@@ -68,8 +64,6 @@ private updateTimeFormat(time: string) {
         dataItem.isChecked = true;
       }
     }
-
-
     private onButtonClick() {
       alert(this.message);
     }

@@ -1,35 +1,25 @@
 <div class="container">
-    <kendo-grid [data]="slots" [height]="255">
-            <kendo-grid-column field="deliveryTimeId" title="Id">
-            </kendo-grid-column>
-
-            <kendo-grid-column field="deliveryDate" title="Delivery Date">
-            </kendo-grid-column>
-
-            <kendo-grid-column field="startTime" title="Start time">
-            </kendo-grid-column>
-
-            <kendo-grid-column field="stopTime" title="Stop time">
-            </kendo-grid-column>
-
-            <kendo-grid-column field="isHomeAvailable" title="inHomeAvailable">
-                <ng-template kendoGridCellTemplate let-dataItem>
-                    <input type="checkbox" [checked]="dataItem.isHomeAvailable" [disabled]="dataItem.isChecked"/>
-                </ng-template>
-            </kendo-grid-column>
-
-             <kendo-grid-column title="choose slot">
-               <ng-template kendoGridCellTemplate let-dataItem>
-                    <input type="checkbox"  [checked]="false" (change)="handleSelected($event, dataItem)"/>
-                </ng-template>
-            </kendo-grid-column>
-
-             <kendo-grid-column field="" title="send delivery">
-               <ng-template kendoGridCellTemplate let-dataItem>
-               <button kendoButton (click)="onButtonClick()" [primary]="true" [disabled]="dataItem.isChecked">delivery</button>
-               </ng-template>
-            </kendo-grid-column>
-        </kendo-grid>
+  <kendo-grid [data]="slots" [height]="255">
+    <kendo-grid-column field="deliveryTimeId" title="DeliveryTimeId"></kendo-grid-column>
+    <kendo-grid-column field="deliveryDate" title="Delivery Date"></kendo-grid-column>
+    <kendo-grid-column field="startTime" title="Start time"></kendo-grid-column>
+    <kendo-grid-column field="stopTime" title="Stop time"></kendo-grid-column>
+    <kendo-grid-column field="isHomeAvailable" title="inHomeAvailable">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox" [checked]="dataItem.isHomeAvailable" [disabled]="dataItem.isChecked"/>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column title="choose slot">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox"  [checked]="false" (change)="handleSelected($event, dataItem)"/>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="" title="send delivery">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <button kendoButton (click)="onButtonClick()" [primary]="true" [disabled]="dataItem.isChecked">delivery</button>
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
 </div>
 
 
