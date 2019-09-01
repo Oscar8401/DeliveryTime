@@ -10,6 +10,7 @@ import { GridDataResult } from '@progress/kendo-angular-grid';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public message = 'The delivery has been sended';
   public gridView: GridDataResult;
   public sort: SortDescriptor [] = [{
     field: 'startTime',
@@ -41,5 +42,8 @@ private updateTimeFormat(time: string) {
       }
 
       return slots;
+    }
+    private onButtonClick() {
+      alert(this.message);
     }
 }
