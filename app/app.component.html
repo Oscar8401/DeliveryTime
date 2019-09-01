@@ -18,14 +18,16 @@
                 </ng-template>
             </kendo-grid-column>
 
-             <kendo-grid-column field="" title="choose slot">
+             <kendo-grid-column title="choose slot">
                <ng-template kendoGridCellTemplate let-dataItem>
-                    <input type="checkbox" [checked]="" />
+                    <input type="checkbox" [checked]="false" />
                 </ng-template>
             </kendo-grid-column>
 
              <kendo-grid-column field="" title="send delivery">
-               <button kendoButton (click)="onButtonClick()">delivery</button>
+               <ng-template kendoGridCellTemplate let-dataItem>
+               <button kendoButton (click)="onButtonClick()" [disabled]="true">delivery</button>
+               </ng-template>
             </kendo-grid-column>
         </kendo-grid>
 </div>
