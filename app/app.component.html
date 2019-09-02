@@ -14,7 +14,7 @@
         <input type="checkbox"  [checked]="false" (change)="handleSelected($event, dataItem)"/>
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="" title="send delivery">
+    <kendo-grid-column title="send delivery">
       <ng-template kendoGridCellTemplate let-dataItem>
         <button kendoButton (click)="onButtonClick()" [primary]="true" [disabled]="dataItem.isChecked">delivery</button>
       </ng-template>
